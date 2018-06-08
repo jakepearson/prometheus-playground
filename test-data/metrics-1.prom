@@ -1,0 +1,5 @@
+# HELP friday The generation observed by the ReplicaSet controller.
+# TYPE friday gauge
+friday{namespace="default",replicaset="nginx-7c87f569d",ResourceId="standardId-1"} 1
+friday{namespace="kube-system",replicaset="proxy",ResourceId="standardId-2"} 1
+friday{namespace="jake",replicaset="tunnelfront"} 1
