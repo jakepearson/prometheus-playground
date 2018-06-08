@@ -1,5 +1,7 @@
 # Prometheus Playground
 
+![Playground](images/playground.jpg)
+
 Configures an environment to make changes to metrics and prometheus config so you can quickly see how the changes will effect how metrics are collected. `main.go` will open a webserver with scrape endpoints for:
 
 * Normal metrics (defined in `metrics.go`)
