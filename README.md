@@ -18,11 +18,11 @@ Metrics are published back to `main.go` and printed so you can see which metrics
 1. Make sure you already have `go` installed.
 2. Clone me
 3. Run `./setup.sh`. This will install:
-  * [Prometheus](http://prometheus.io)
-  * [Gin (auto build and restart your go code)](https://github.com/codegangsta/gin)
-  * [Watcher (tell Prometheus to reload its configuration when it is saved)](https://github.com/radovskyb/watcher)
+    * [Prometheus](http://prometheus.io)
+    * [Gin (auto build and restart your go code)](https://github.com/codegangsta/gin)
+    * [Watcher (tell Prometheus to reload its configuration when it is saved)](https://github.com/radovskyb/watcher)
 4. Run `./start.sh` which will:
-  * Delete the `Prometheus` data folder
-  * Start `Prometheus`, with its webserver open so it can be notified to refresh its configuration
-  * Start `watcher` configured to curl to `Prometheus` when `prometheus.yml` changes
-  * Start `gin` configured to recompile and restart main when any `.go` file changes
+    * Delete the `Prometheus` data folder
+    * Start `Prometheus`, with its webserver open so it can be notified to refresh its configuration
+    * Start `watcher` configured to curl to `Prometheus` when `prometheus.yml` changes
+    * Start `gin` configured to recompile and restart main when any `.go` file changes
