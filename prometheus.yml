@@ -1,10 +1,10 @@
-remote_write:
-  - url: "http://localhost:3000/normal"
-  - url: "http://localhost:3000/filter"
-    write_relabel_configs:
-    - regex: '.+'
-      source_labels: [ResourceId]
-      action: drop
+# remote_write:
+#   - url: "http://localhost:3000/normal"
+#   - url: "http://localhost:3000/filter"
+#     write_relabel_configs:
+#     - regex: '.+'
+#       source_labels: [ResourceId]
+#       action: drop
 
 scrape_configs:
   - job_name: normal
@@ -12,13 +12,16 @@ scrape_configs:
     metrics_path: /metrics
     static_configs:
       - targets: ['localhost:3000']
-  - job_name: metrics-2
-    scrape_interval: 5s
-    metrics_path: /test-data/metrics-1.prom
-    static_configs:
-      - targets: ['localhost:3000']
   - job_name: metrics-1
     scrape_interval: 5s
     metrics_path: /test-data/metrics-1.prom
     static_configs:
       - targets: ['localhost:3000']
+  - job_name: metrics-2
+    scrape_interval: 5s
+    metrics_path: /test-data/metrics-2.prom
+    static_configs:
+      - targets: ['localhost:3000']
+
+rule_files:
+  - rules.yml

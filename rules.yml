@@ -1,0 +1,10 @@
+groups:
+- name: kube-proxy needs restart
+  rules:
+  - alert: KubeProxyNeedsRestart
+    expr: ((time() - kube_pod_start_time{pod=~"kube-proxy.+"})/(60*60*24)) > 1
+    for: 10m
+    labels:
+      severity: page
+    annotations:
+      summary: kube-proxy has not restarted in {{ $labels.region }} days

@@ -1,22 +1,27 @@
 package main
 
-import "github.com/prometheus/client_golang/prometheus"
+import (
+	"time"
+
+	"github.com/prometheus/client_golang/prometheus"
+)
 
 var (
-	normal = prometheus.NewGauge(prometheus.GaugeOpts{
-		Name: "test_normal",
-		Help: "Should go to all writers",
-	})
-	filter = prometheus.NewGauge(prometheus.GaugeOpts{
-		Name: "test_filter",
-		Help: "Only go to filter endpoint",
+	age12hours = prometheus.NewGauge(prometheus.GaugeOpts{
+		Name: "kube_pod_start_time",
+		Help: "Should not alert",
+		ConstLabels: prometheus.Labels{
+			"region":      "eastus",
+			"underlay":    "c2",
+			"shouldAlert": "false",
+		},
 	})
 )
 
 func init() {
-	normal.Set(123)
-	filter.Set(456)
+	twelveHoursAgoEpoch := time.Now().Add(-12 * time.Hour).Unix()
 
-	prometheus.MustRegister(normal)
-	prometheus.MustRegister(filter)
+	age12hours.Set(float64(twelveHoursAgoEpoch))
+
+	prometheus.MustRegister(age12hours)
 }

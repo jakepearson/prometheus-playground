@@ -23,6 +23,6 @@ Metrics are published back to `main.go` and printed so you can see which metrics
     * [Watcher (tell Prometheus to reload its configuration when it is saved)](https://github.com/radovskyb/watcher)
 4. Run `./start.sh` which will:
     * Delete the `Prometheus` data folder
-    * Start `Prometheus`, with its webserver open so it can be notified to refresh its configuration
+    * Start `Prometheus`, with its webserver open so it can be notified to refresh its configudration
     * Start `watcher` configured to curl to `Prometheus` when `prometheus.yml` changes
     * Start `gin` configured to recompile and restart main when any `.go` file changes

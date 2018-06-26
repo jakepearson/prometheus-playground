@@ -3,3 +3,7 @@
 friday{namespace="default",replicaset="nginx-7c87f569d",ResourceId="standardId-1"} 1
 friday{namespace="kube-system",replicaset="proxy",ResourceId="standardId-2"} 1
 friday{namespace="jake",replicaset="tunnelfront"} 1
+
+# HELP kube_pod_start_time Should alert
+# TYPE kube_pod_start_time gauge
+kube_pod_start_time{region="westeurope",underlay="cx-2",shouldAlert="true",pod="kube-proxy-8hhjt"} 1.52989952e+09
