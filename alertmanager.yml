@@ -1,0 +1,8 @@
+route:
+  repeat_interval: 30s
+  receiver: remediator
+
+receivers:
+- name: remediator
+  webhook_configs:
+    - url: http://localhost:3000

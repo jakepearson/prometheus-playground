@@ -2,7 +2,7 @@
 # TYPE friday gauge
 friday{namespace="default",replicaset="nginx-7c87f569d"} 1
 friday{namespace="kube-system",replicaset="proxy"} 1
-friday{namespace="jake",replicaset="tunnelfront"} 1
+friday{namespace="jake",replicaset="tunnelfront"} 2
 
 # HELP kube_pod_start_time Should alert
 # TYPE kube_pod_start_time gauge

@@ -35,9 +35,15 @@ func createHandler(endpoint string) func(w http.ResponseWriter, r *http.Request)
 	}
 }
 
+func alertHandler(w http.ResponseWriter, r *http.Request) {
+	now := time.Now().Format("04:04:05")
+	fmt.Printf("%s\n%s\n\n", now, r.Form.Encode())
+}
+
 func main() {
 	http.Handle("/normal", http.HandlerFunc(createHandler("normal")))
 	http.Handle("/filter", http.HandlerFunc(createHandler("filter")))
+	http.Handle("/alert", http.HandlerFunc(alertHandler))
 	http.Handle("/metrics", promhttp.Handler())
 	http.HandleFunc("/test-data/", func(w http.ResponseWriter, r *http.Request) {
 		http.ServeFile(w, r, r.URL.Path[1:])

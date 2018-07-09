@@ -8,3 +8,12 @@ groups:
       severity: page
     annotations:
       summary: kube-proxy has not restarted in {{ $labels.region }} days
+- name: fire the alert
+  rules:
+    - alert: FireTheAlert
+      expr: friday > 1
+      for: 10s
+      labels:
+        severity: page
+      annotations:
+        summary: friday went above 1
